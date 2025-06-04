@@ -44,12 +44,17 @@ const Carousel = () => {
           left: 10,
           transform: 'translateY(-50%)',
           zIndex: 2,
-          background: 'rgba(255,255,255,0.7)',
-          border: 'none',
+          background: 'rgba(30,30,30,0.85)',
+          color: '#fff',
+          border: '2px solid #fff',
           borderRadius: '50%',
-          width: 32,
-          height: 32,
+          width: 40,
+          height: 40,
+          fontSize: 22,
+          fontWeight: 'bold',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
           cursor: 'pointer',
+          transition: 'background 0.2s',
         }}
         aria-label='Zurück'
       >
@@ -64,12 +69,17 @@ const Carousel = () => {
           right: 10,
           transform: 'translateY(-50%)',
           zIndex: 2,
-          background: 'rgba(255,255,255,0.7)',
-          border: 'none',
+          background: 'rgba(30,30,30,0.85)',
+          color: '#fff',
+          border: '2px solid #fff',
           borderRadius: '50%',
-          width: 32,
-          height: 32,
+          width: 40,
+          height: 40,
+          fontSize: 22,
+          fontWeight: 'bold',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
           cursor: 'pointer',
+          transition: 'background 0.2s',
         }}
         aria-label='Weiter'
       >
@@ -81,10 +91,10 @@ const Carousel = () => {
           position: 'absolute',
           left: 0,
           right: 0,
-          bottom: 10,
+          bottom: 18,
           display: 'flex',
           justifyContent: 'center',
-          gap: '8px',
+          gap: '12px',
           zIndex: 2,
         }}
       >
@@ -94,15 +104,17 @@ const Carousel = () => {
             onClick={() => setCurrent(idx)}
             style={{
               display: 'inline-block',
-              width: 5,
-              height: 5,
+              width: 25,
+              height: 25,
               borderRadius: '50%',
-              background: idx === current ? '#333' : '#ccc',
+              background: idx === current ? '#fff' : 'rgba(30,30,30,0.7)',
+              border: idx === current ? '2px solid #333' : '2px solid #fff',
+              boxShadow: idx === current ? '0 0 8px #333' : '0 0 4px #fff',
               cursor: 'pointer',
-              border: idx === current ? '1px solid #fff' : 'none',
-              boxShadow: idx === current ? '0 0 2px #333' : 'none',
               margin: 0,
+              transition: 'background 0.2s, box-shadow 0.2s, border 0.2s',
             }}
+            title={`Bild ${idx + 1}`}
           />
         ))}
       </div>
