@@ -16,8 +16,15 @@ const Carousel = () => {
   const prev = () => setCurrent((current - 1 + images.length) % images.length);
 
   return (
-    <div style={{ width: '400px', margin: '0 auto', position: 'relative' }}>
-      <button onClick={prev}>Zurück</button>
+    <div
+      style={{
+        width: '400px',
+        margin: '0 auto',
+        position: 'relative',
+        height: '200px',
+      }}
+    >
+      {/* Bild */}
       <img
         src={images[current]}
         alt={`Bild ${current + 1}`}
@@ -28,16 +35,57 @@ const Carousel = () => {
           display: 'block',
         }}
       />
-      <button onClick={next}>Weiter</button>
+      {/* Zurück-Button */}
+      <button
+        onClick={prev}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: 10,
+          transform: 'translateY(-50%)',
+          zIndex: 2,
+          background: 'rgba(255,255,255,0.7)',
+          border: 'none',
+          borderRadius: '50%',
+          width: 32,
+          height: 32,
+          cursor: 'pointer',
+        }}
+        aria-label='Zurück'
+      >
+        &#8592;
+      </button>
+      {/* Weiter-Button */}
+      <button
+        onClick={next}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: 10,
+          transform: 'translateY(-50%)',
+          zIndex: 2,
+          background: 'rgba(255,255,255,0.7)',
+          border: 'none',
+          borderRadius: '50%',
+          width: 32,
+          height: 32,
+          cursor: 'pointer',
+        }}
+        aria-label='Weiter'
+      >
+        &#8594;
+      </button>
+      {/* Pagination */}
       <div
         style={{
           position: 'absolute',
           left: 0,
           right: 0,
-          bottom: 18,
+          bottom: 10,
           display: 'flex',
           justifyContent: 'center',
           gap: '8px',
+          zIndex: 2,
         }}
       >
         {images.map((_, idx) => (
@@ -46,8 +94,8 @@ const Carousel = () => {
             onClick={() => setCurrent(idx)}
             style={{
               display: 'inline-block',
-              width: 8,
-              height: 8,
+              width: 5,
+              height: 5,
               borderRadius: '50%',
               background: idx === current ? '#333' : '#ccc',
               cursor: 'pointer',
