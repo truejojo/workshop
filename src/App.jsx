@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const images = [
-  'https://via.placeholder.com/400x200?text=Bild+1',
-  'https://via.placeholder.com/400x200?text=Bild+2',
-  'https://via.placeholder.com/400x200?text=Bild+3',
+  'https://picsum.photos/400/200?random=1',
+  'https://picsum.photos/400/200?random=2',
+  'https://picsum.photos/400/200?random=3',
 ];
 
 const App = () => {
