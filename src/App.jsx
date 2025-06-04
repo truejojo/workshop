@@ -21,6 +21,26 @@ const App = () => {
         style={{ width: '400px', height: '200px', objectFit: 'cover' }}
       />
       <button onClick={next}>Weiter</button>
+      <div style={{ marginTop: '10px' }}>
+        {images.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrent(idx)}
+            style={{
+              margin: '0 4px',
+              width: 24,
+              height: 24,
+              borderRadius: '50%',
+              background: idx === current ? '#333' : '#ccc',
+              color: '#fff',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            {idx + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
