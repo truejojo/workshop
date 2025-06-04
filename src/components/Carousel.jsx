@@ -16,32 +16,46 @@ const Carousel = () => {
   const prev = () => setCurrent((current - 1 + images.length) % images.length);
 
   return (
-    <div>
+    <div style={{ width: '400px', margin: '0 auto', position: 'relative' }}>
       <button onClick={prev}>Zurück</button>
       <img
         src={images[current]}
         alt={`Bild ${current + 1}`}
-        style={{ width: '400px', height: '200px', objectFit: 'cover' }}
+        style={{
+          width: '400px',
+          height: '200px',
+          objectFit: 'cover',
+          display: 'block',
+        }}
       />
       <button onClick={next}>Weiter</button>
-      <div style={{ marginTop: '10px' }}>
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 18,
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '8px',
+        }}
+      >
         {images.map((_, idx) => (
-          <button
+          <span
             key={idx}
             onClick={() => setCurrent(idx)}
             style={{
-              margin: '0 4px',
-              width: 24,
-              height: 24,
+              display: 'inline-block',
+              width: 8,
+              height: 8,
               borderRadius: '50%',
               background: idx === current ? '#333' : '#ccc',
-              color: '#fff',
-              border: 'none',
               cursor: 'pointer',
+              border: idx === current ? '1px solid #fff' : 'none',
+              boxShadow: idx === current ? '0 0 2px #333' : 'none',
+              margin: 0,
             }}
-          >
-            {idx + 1}
-          </button>
+          />
         ))}
       </div>
     </div>
