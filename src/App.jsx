@@ -15,7 +15,11 @@ const App = () => {
   return (
     <div>
       <button onClick={prev}>Zurück</button>
-      <img src={images[current]} alt={`Bild ${current + 1}`} />
+      <img
+        src={images[current]}
+        alt={`Bild ${current + 1}`}
+        style={{ width: '400px', height: '200px', objectFit: 'cover' }}
+      />
       <button onClick={next}>Weiter</button>
     </div>
   );
